@@ -14,12 +14,12 @@
     </tr>
   </thead>
   <tbody>
-  <% Item.all.select{ |item| item.expires > Date.today }.each do |item| %>
+  <% Item.valid_items.each do |item| %>
     <tr>
       <td><%= item.name %></td>
       <td>$<%= Money.us_dollar(item.price) %></td>
       <td><%= item.quantity %></td>
-      <td><%= item.expires %></td>
+      <td><%= item.expires_on %></td>
     </tr>
   <% end %>
   </tbody>

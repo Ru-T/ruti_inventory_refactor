@@ -1,5 +1,5 @@
 <p>
-  <%= form_for @item, html: { class: 'form-inline' } do |f| %>
+  <%= form_for Item.new, html: { class: 'form-inline' } do |f| %>
     <div class='form-group'>
       <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
     </div>

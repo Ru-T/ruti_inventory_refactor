@@ -1,8 +1,4 @@
 class ItemsController < ApplicationController
-  def home
-    @item = Item.new
-    @items = Item.all
-  end
 
   def create
     @item = Item.new(item_params)
@@ -12,6 +8,11 @@ class ItemsController < ApplicationController
       flash[:error] = "Invalid"
       redirect_to root_path
     end
+  end
+
+  def home
+    @item = Item.new
+    @category = Category.new
   end
 
   private

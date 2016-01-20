@@ -8,4 +8,8 @@ class Item < ActiveRecord::Base
   def self.valid_items
     Item.all.select { |item| item.expires_on >= Date.today }
   end
+
+  def price_in_dollars
+    Money.us_dollar(price).to_s
+  end
 end

@@ -17,7 +17,7 @@
   <% Item.valid_items.each do |item| %>
     <tr>
       <td><%= item.name %></td>
-      <td>$<%= Money.us_dollar(item.price) %></td>
+      <td>$<%= item.price_in_dollars %></td>
       <td><%= item.quantity %></td>
       <td><%= item.expires_on %></td>
     </tr>

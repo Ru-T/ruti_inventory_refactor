@@ -1,11 +1,8 @@
 class Item < ActiveRecord::Base
   belongs_to :category
 
-  validates :name, presence: true
-  validates :price, presence: true
-  validates :quantity, presence: true
-  validates :shelf_life_days, presence: true
-  
+  validates_presence_of :name, :price, :quantity, :shelf_life_days
+
   def expires
     Date.today + shelf_life_days.days
   end

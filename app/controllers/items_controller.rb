@@ -11,6 +11,8 @@ class ItemsController < ApplicationController
   end
 
   def index
+    @category = Category.new
+    @item = Item.new
     @items = Item.valid_items
   end
 

@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def create
-    Category.create(category_params)
+    @category(category_params)
     redirect_to root_path
   end
 

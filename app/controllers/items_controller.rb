@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def home
+  def index
     @item = Item.new
     @category = Category.new
   end

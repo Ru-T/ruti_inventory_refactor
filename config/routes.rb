@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  root 'items#home'
+  root 'items#index'
 
-  resources :items, only: [:create, :update] do  
-    collection do
-      get :home
-    end
-  end
+  resources :items, only: [:create, :update, :index]
   resources :categories, only: [:create]
 end

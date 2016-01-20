@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   post '/items', to: 'items#create'
   patch '/items', to: 'items#update'
 
-  post '/categories', to: 'categories#create'
+  resources :categories, only: [:create]
 end

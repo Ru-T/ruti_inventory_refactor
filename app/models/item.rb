@@ -1,7 +1,9 @@
 class Item < ActiveRecord::Base
   belongs_to :category
 
-  def expires_on
+  validates_presence_of :name, :price, :quantity, :shelf_life_days
+
+  def expires
     created_at + shelf_life_days.days
   end
 

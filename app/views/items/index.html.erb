@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-  <% Item.valid_items.each do |item| %>
+  <% @items.each do |item| %>
     <tr>
       <td><%= item.name %></td>
       <td>$<%= item.price_in_dollars %></td>

@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
 
   validates_presence_of :name, :price, :quantity, :shelf_life_days
 
-  def expires
+  def expires_on
     created_at + shelf_life_days.days
   end
 

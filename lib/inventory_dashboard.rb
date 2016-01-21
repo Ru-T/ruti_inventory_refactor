@@ -12,5 +12,4 @@ class InventoryDashboard < ActiveRecord::Base
   def new_category(attrs)
     @category = Category.new(attrs)
   end
-
 end

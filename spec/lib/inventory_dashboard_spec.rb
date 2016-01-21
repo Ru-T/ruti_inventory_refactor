@@ -17,7 +17,7 @@ RSpec.describe InventoryDashboard do
 
   describe "#initialize" do
     it "is initialized with all valid items" do
-      expect(InventoryDashboard.new(items)).to include item
+      expect(InventoryDashboard).to include item
     end
   end
 
@@ -38,5 +38,4 @@ RSpec.describe InventoryDashboard do
       expect(subject.new_category(name: "Category2")).to respond_to(:save)
     end
   end
-
 end

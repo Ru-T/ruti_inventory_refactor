@@ -1,7 +1,7 @@
 class InventoryDashboard
   attr_reader :items
 
-  def initialize(items)
+  def initialize
     @items = Item.valid_items
   end
 

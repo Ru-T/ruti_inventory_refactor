@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'inventory_dashboard.rb'
 
 RSpec.describe InventoryDashboard do
   let!(:item) { FactoryGirl.create(:item) }
@@ -12,6 +13,8 @@ RSpec.describe InventoryDashboard do
     )
   end
 
+  subject { InventoryDashboard.new }
+
   describe "#initialize" do
     it "is initialized with all valid items" do
       expect(InventoryDashboard.new(items)).to include item
@@ -20,31 +23,20 @@ RSpec.describe InventoryDashboard do
 
   describe "#new_item" do
     it "creates a new item" do
-      expect(InventoryDashboard.new_item(name: "ThisItem")).name.to eq "ThisItem"
+      expect(subject.new_item(name: "ThisItem", shelf_life_days: 2, quantity: 1, price: 2)).to respond_to(:save)
     end
   end
 
   describe "#inventory_categories" do
     it "returns all existing categories" do
-      expect(InventoryDashboard.inventory_categories).to include category
+      expect(subject.inventory_categories).to include category
     end
   end
 
   describe "#new category" do
     it "creates a new category" do
-      expect(InventoryDashboard.new_category(name: "Category2")).name.to eq "Category2"
+      expect(subject.new_category(name: "Category2")).to respond_to(:save)
     end
   end
 
-  describe "#save_item" do
-    it "saves a new item" do
-      expect(InventoryDashboard.save_item(name: "NewItem")).name.to eq "NewItem"
-    end
-  end
-
-  describe "#save_category" do
-    it "saves a new category" do
-      expect(InventoryDashboard.save_category(name: "NewCategory")).name.to eq "NewCategory"
-    end
-  end
 end

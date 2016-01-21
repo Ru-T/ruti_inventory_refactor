@@ -4,8 +4,7 @@ class Item < ActiveRecord::Base
   validates_presence_of :name, :price, :quantity, :shelf_life_days
 
   scope :valid_items, -> {where 'shelf_life_days >
-                          (Date.today - created_at)
-                          .in_days'
+                          (current_date - date(created_at))'
                           }
 
   def expires_on

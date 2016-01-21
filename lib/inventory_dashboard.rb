@@ -17,7 +17,11 @@ class InventoryDashboard
     @category ||= Category.new(attrs)
   end
 
-  def save_piece_of_inventory(attrs)
+  def save_item(attrs)
     new_item(attrs).save
+  end
+
+  def save_category(attrs)
+    new_category(attrs).save
   end
 end

@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   def create
     @inventory_manager = InventoryDashboard.new
 
-    if @inventory_manager.save_piece_of_inventory(item_params)
+    if @inventory_manager.save_item(item_params)
       flash[:error] = 'error message'
       render :index
     else
@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @inventory_dashboard = InventoryDashboard.new(@items)
+    @inventory_dashboard = InventoryDashboard.new(Item.all)
   end
 
   private

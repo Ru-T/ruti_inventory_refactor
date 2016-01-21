@@ -1,8 +1,8 @@
 <p> <%= flash[:error] %> </p>
 
-<%= render 'item_form' %>
+<%#= render 'item_form' %>
 
-<%= render 'category_form' %>
+<%#= render 'category_form' %>
 
 <table class='table table-bordered'>
   <thead>
@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-  <% @items.each do |item| %>
+  <% @inventory_dashboard.items.each do |item| %>
     <tr>
       <td><%= item.name %></td>
       <td>$<%= item.price_in_dollars %></td>

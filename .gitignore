@@ -5,4 +5,4 @@
 !/log/.keep
 /tmp
 vendor/ruby
-/config/style_guides
+/config/*.style_guides

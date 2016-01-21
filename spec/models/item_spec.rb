@@ -17,7 +17,7 @@ RSpec.describe Item, type: :model do
       expect(FactoryGirl.build(:item)).to be_valid
     end
 
-	  it "must have name to be valid" do
+    it "must have name to be valid" do
       expect(FactoryGirl.build(:item, name: "")).to_not be_valid
     end
 

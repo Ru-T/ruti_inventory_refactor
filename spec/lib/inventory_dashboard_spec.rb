@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe InventoryDashboard do
-
   let!(:item) { FactoryGirl.create(:item) }
   let!(:category) { FactoryGirl.create(:category) }
   let(:item2) do
@@ -21,7 +20,7 @@ RSpec.describe InventoryDashboard do
 
   describe "#new_item" do
     it "creates a new item" do
-      expect(InventoryDashboard.new_item({name: "ThisItem"})).name.to eq "ThisItem"
+      expect(InventoryDashboard.new_item(name: "ThisItem")).name.to eq "ThisItem"
     end
   end
 
@@ -33,20 +32,19 @@ RSpec.describe InventoryDashboard do
 
   describe "#new category" do
     it "creates a new category" do
-      expect(InventoryDashboard.new_category({name: "Category2"})).name.to eq "Category2"
+      expect(InventoryDashboard.new_category(name: "Category2")).name.to eq "Category2"
     end
   end
 
   describe "#save_item" do
     it "saves a new item" do
-      expect(InventoryDashboard.save_item({name: "NewItem"})).name.to eq "NewItem"
+      expect(InventoryDashboard.save_item(name: "NewItem")).name.to eq "NewItem"
     end
   end
 
   describe "#save_category" do
     it "saves a new category" do
-      expect(InventoryDashboard.save_category({name: "NewCategory"})).name.to eq "NewCategory"
+      expect(InventoryDashboard.save_category(name: "NewCategory")).name.to eq "NewCategory"
     end
   end
-
 end

@@ -17,7 +17,7 @@ RSpec.describe InventoryDashboard do
 
   describe "#initialize" do
     it "is initialized with all valid items" do
-      expect(InventoryDashboard).to include item
+      expect(InventoryDashboard.new.items).to include item
     end
   end
 

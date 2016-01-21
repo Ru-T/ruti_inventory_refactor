@@ -3,12 +3,11 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
 
   let!(:item) { FactoryGirl.create(:item) }
-  let(:item2) { FactoryGirl.create(:item,
-                                    price: 3,
-                                    created_at: Date.today,
-                                    shelf_life_days: -1) }
+  let(:item2) { FactoryGirl.create(:item, price: 3,
+                                          created_at: Date.today,
+                                          shelf_life_days: -1) }
 
-  describe 'validations' do
+  describe "validations" do
 	  it "is valid with all fields" do
       expect(FactoryGirl.build(:item)).to be_valid
     end
@@ -30,7 +29,7 @@ RSpec.describe Item, type: :model do
     end
   end
 
-  describe '.valid_items' do
+  describe ".valid_items" do
     it "returns all items that have not expired" do
       expect(Item.valid_items).to include item
     end

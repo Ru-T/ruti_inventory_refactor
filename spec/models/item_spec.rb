@@ -5,7 +5,8 @@ RSpec.describe Item, type: :model do
   let!(:item) { FactoryGirl.create(:item) }
   let(:item2) { FactoryGirl.create(:item, price: 3,
                                           created_at: Date.today,
-                                          shelf_life_days: -1) }
+                                          shelf_life_days: -1)
+                                          }
 
   describe "validations" do
 	  it "is valid with all fields" do

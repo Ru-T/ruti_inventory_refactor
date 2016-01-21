@@ -5,11 +5,11 @@ RSpec.describe InventoryDashboard do
   let!(:item) { FactoryGirl.create(:item) }
   let!(:category) { FactoryGirl.create(:category) }
 
-  subject { InventoryDashboard.new }
+  subject { InventoryDashboard.new(Item.all) }
 
   describe "#initialize" do
     it "is initialized with all valid items" do
-      expect(InventoryDashboard.new.items).to include item
+      expect(subject.items).to include item
     end
   end
 

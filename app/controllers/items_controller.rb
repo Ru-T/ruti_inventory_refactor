@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
 
   def create
-    @inventory_manager = InventoryDashboard.new
+    @inventory_dashboard = InventoryDashboard.new(Item.all)
 
-    if @inventory_manager.save_item(item_params)
+    if @inventory_dashboard.save_item(item_params)
       flash[:error] = 'error message'
       render :index
     else

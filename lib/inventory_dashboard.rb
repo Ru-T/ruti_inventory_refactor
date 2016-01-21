@@ -1,4 +1,4 @@
-class InventoryDashboard < ActiveRecord::Base
+class InventoryDashboard
   attr_reader :items
 
   def initialize(items)
@@ -6,10 +6,18 @@ class InventoryDashboard < ActiveRecord::Base
   end
 
   def new_item(attrs)
-    @new_item = Item.new(attrs)
+    @item ||= Item.new(attrs)
+  end
+
+  def inventory_categories
+    Category.all
   end
 
   def new_category(attrs)
-    @category = Category.new(attrs)
+    @category ||= Category.new(attrs)
+  end
+
+  def save_piece_of_inventory(attrs)
+    new_item(attrs).save
   end
 end

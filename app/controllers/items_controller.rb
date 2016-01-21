@@ -1,19 +1,19 @@
 class ItemsController < ApplicationController
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
+    @inventory_manager = InventoryDashboard.new
+
+    if @inventory_manager.save_piece_of_inventory(item_params)
+      flash[:error] = 'error message'
+      render :index
     else
-      flash[:error] = "Invalid"
+      flash[:success] = 'success'
       redirect_to root_path
     end
   end
 
   def index
-    @category = Category.new
-    @item = Item.new
-    @items = Item.valid_items
+    @inventory_dashboard = InventoryDashboard.new(@items)
   end
 
   private

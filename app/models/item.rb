@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
 
   scope :valid_items, -> {where 'shelf_life_days >
                           (current_date - date(created_at))'
-                          }
+                         }
 
   def expires_on
     created_at + shelf_life_days.days

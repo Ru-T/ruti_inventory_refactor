@@ -49,9 +49,8 @@ RSpec.describe Item, type: :model do
 
   describe "#price_in_dollars" do
     it "returns a dollar amount for price" do
-      expect(item.price_in_dollars).to eq '0.10'
-      expect(item2.price_in_dollars).to eq '0.03'
+      expect(item.price_in_dollars).to eq "0.10"
+      expect(item2.price_in_dollars).to eq "0.03"
     end
   end
-
 end

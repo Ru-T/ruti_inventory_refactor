@@ -3,13 +3,17 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
 
   let!(:item) { FactoryGirl.create(:item) }
-  let(:item2) { FactoryGirl.create(:item, price: 3,
-                                          created_at: Date.today,
-                                          shelf_life_days: -1)
-                                          }
+  let(:item2) do
+    FactoryGirl.create(
+      :item,
+      price: 3,
+      created_at: Date.today,
+      shelf_life_days: -1
+    )
+  end
 
   describe "validations" do
-	  it "is valid with all fields" do
+    it "is valid with all fields" do
       expect(FactoryGirl.build(:item)).to be_valid
     end
 
@@ -42,8 +46,8 @@ RSpec.describe Item, type: :model do
 
   describe "#expires_on" do
     it "returns an expiration date for an item" do
-      expect(item.expires_on).to eq (Date.today + 14.days)
-      expect(item2.expires_on).to eq (Date.today - 1.days)
+      expect(item.expires_on).to eq Date.today + 14.days
+      expect(item2.expires_on).to eq Date.today - 1.days
     end
   end
 

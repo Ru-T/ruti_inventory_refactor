@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @inventory_dashboard = InventoryDashboard.new
+    @inventory_dashboard = InventoryDashboard.new(Item.all)
   end
 
   private

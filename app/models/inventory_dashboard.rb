@@ -5,20 +5,12 @@ class InventoryDashboard < ActiveRecord::Base
     @items = Item.valid_items
   end
 
-  def new_item
-    @new_item = Item.new
+  def new_item(attrs = {:name, :shelf_life_days, :quantity, :price, :category_id})
+    @new_item = Item.new(attrs)
   end
 
-  def new_category
-    @category = Category.new
-  end
-
-  def save_item
-    new_item.save
-  end
-
-  def save_category
-    new_category.save
+  def new_category(attrs = {:name})
+    @category = Category.new(attrs)
   end
 
 end

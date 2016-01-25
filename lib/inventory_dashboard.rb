@@ -6,7 +6,7 @@ class InventoryDashboard
   end
 
   def new_item(attrs)
-    @item ||= Item.new(attrs)
+    @item = Item.new(attrs)
   end
 
   def inventory_categories
@@ -14,7 +14,7 @@ class InventoryDashboard
   end
 
   def new_category(attrs)
-    @category ||= Category.new(attrs)
+    @category = Category.new(attrs)
   end
 
   def save_item(attrs)

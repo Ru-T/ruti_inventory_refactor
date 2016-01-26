@@ -1,5 +1,5 @@
-require 'rails_helper'
-require 'inventory_dashboard.rb'
+require "rails_helper"
+require "inventory_dashboard.rb"
 
 RSpec.describe InventoryDashboard do
   let!(:item) { FactoryGirl.create(:item) }
@@ -15,8 +15,7 @@ RSpec.describe InventoryDashboard do
 
   describe "#new_item" do
     it "creates a new item" do
-      expect(subject.new_item(name: "ThisItem", shelf_life_days: 2, quantity: 1, price: 2))
-        .to respond_to(:save)
+      expect(subject.new_item(name: "N", shelf_life_days: 2, quantity: 1, price: 2)).to respond_to(:save)
     end
   end
 

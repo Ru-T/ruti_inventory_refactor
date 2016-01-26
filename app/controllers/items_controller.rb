@@ -4,10 +4,10 @@ class ItemsController < ApplicationController
     @inventory_dashboard = InventoryDashboard.new(Item.all)
 
     if @inventory_dashboard.save_item(item_params)
-      flash[:success] = 'success'
+      flash[:success] = "success"
       redirect_to root_path
     else
-      flash[:error] = 'error message'
+      flash[:error] = "error message"
       render :index
     end
   end

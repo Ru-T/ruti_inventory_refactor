@@ -5,7 +5,7 @@ class InventoryDashboard
     @items = Item.valid_items
   end
 
-  def new_item(attrs)
+  def new_item(attrs = {})
     @item = Item.new(attrs)
   end
 
@@ -13,7 +13,7 @@ class InventoryDashboard
     Category.all
   end
 
-  def new_category(attrs)
+  def new_category(attrs = {})
     @category = Category.new(attrs)
   end
 

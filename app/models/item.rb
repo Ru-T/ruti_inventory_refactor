@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
     created_at + shelf_life_days.days
   end
 
-  def price_in_dollars
+  def price_in_cents
     Money.us_dollar(price).to_s
   end
 end

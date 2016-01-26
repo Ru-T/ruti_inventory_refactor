@@ -15,7 +15,9 @@ RSpec.describe InventoryDashboard do
 
   describe "#new_item" do
     it "creates a new item" do
-      expect(subject.new_item(name: "N", shelf_life_days: 2, quantity: 1, price: 2)).to respond_to(:save)
+      new_item = subject.new_item(name: "N", shelf_life_days: 2, quantity: 1, price: 2)
+      expect(new_item).to respond_to(:save)
+      expect{ new_item }.to change { Item.count }.by(1)
     end
   end
 
@@ -27,7 +29,9 @@ RSpec.describe InventoryDashboard do
 
   describe "#new category" do
     it "creates a new category" do
-      expect(subject.new_category(name: "Category2")).to respond_to(:save)
+      new_category = subject.new_category(name: "Category2")
+      expect(new_category).to respond_to(:save)
+      expect{ new_category }.to change { Category.count }.by(1)
     end
   end
 end

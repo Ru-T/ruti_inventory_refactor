@@ -1,0 +1,26 @@
+<p> <%= flash[:error] %> </p>
+
+<%= render 'item_form' %>
+
+<%= render 'category_form' %>
+
+<table class='table table-bordered'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Expires</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @inventory_dashboard.items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td>$<%= item.price_in_dollars %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.expires_on %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

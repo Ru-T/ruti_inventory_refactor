@@ -1,6 +1,5 @@
-<p> <%= flash[:error] %> </p>
 <p>
-  <%= form_for @item, html: { class: 'form-inline' } do |f| %>
+  <%= form_for @inventory_dashboard.new_item, html: { class: 'form-inline' } do |f| %>
     <div class='form-group'>
       <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
     </div>
@@ -19,32 +18,3 @@
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
 </p>
-<p>
-  <%= form_for Category.new, html: { class: 'form-inline' } do |f| %>
-    <div class='form-group'>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <%= f.submit class: 'btn btn-primary' %>
-  <% end %>
-</p>
-
-<table class='table table-bordered'>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Expires</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% Item.all.select{ |item| item.expires > Date.today }.each do |item| %>
-    <tr>
-      <td><%= item.name %></td>
-      <td>$<%= Money.us_dollar(item.price) %></td>
-      <td><%= item.quantity %></td>
-      <td><%= item.expires %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>

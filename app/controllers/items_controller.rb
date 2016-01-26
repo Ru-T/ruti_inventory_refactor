@@ -1,18 +1,19 @@
 class ItemsController < ApplicationController
-  def home
-    @item = Item.new
-    @items = Item.all
-  end
 
   def create
-    @item = Item.new(item_params)
+    @inventory_dashboard = InventoryDashboard.new(Item.all)
 
-    if @item.save
+    if @inventory_dashboard.save_item(item_params)
+      flash[:success] = "success"
       redirect_to root_path
     else
-      flash[:error] = "Invalid"
-      redirect_to root_path
+      flash[:error] = "error message"
+      render :index
     end
+  end
+
+  def index
+    @inventory_dashboard = InventoryDashboard.new(Item.all)
   end
 
   private

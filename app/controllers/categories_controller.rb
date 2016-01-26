@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   def create
-    Category.create(category_params)
+    @inventory_dashboard = InventoryDashboard.new(Item.all)
+    @inventory_dashboard.save_category(category_params)
     redirect_to root_path
   end
 

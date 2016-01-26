@@ -3,7 +3,15 @@ class Item < ActiveRecord::Base
 
   validates_presence_of :name, :price, :quantity, :shelf_life_days
 
-  def expires
-    Date.today + shelf_life_days.days
+  scope :valid_items, lambda {
+    where("shelf_life_days > (current_date - date(created_at))")
+  }
+
+  def expires_on
+    created_at + shelf_life_days.days
+  end
+
+  def price_in_cents
+    Money.us_dollar(price).to_s
   end
 end
